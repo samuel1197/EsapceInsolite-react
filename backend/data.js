@@ -17,7 +17,6 @@ const data = {
     ],
     products:[
         {
-            _id:'1',
             name:'Cabane-besancon',
             category:'Cabane',
             image:'/images/cabane-besancon.jpg',
@@ -28,8 +27,7 @@ const data = {
             description: 'Jolie cabane situé dans la campagne de Besancon',
         },
         {
-            _id:'2',
-            name:'Cabane-besancon',
+            name:'Cabane-limoges',
             category:'Cabane',
             image:'/images/cabane-besancon.jpg',
             price:90,

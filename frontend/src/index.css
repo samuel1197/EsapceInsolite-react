@@ -184,6 +184,9 @@ img.large {
   color: black;
 }
 /* Alerte */
+.loading{
+  display: block !important;
+}
 
 .success{
   color: #20a020;

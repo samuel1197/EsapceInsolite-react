@@ -1,23 +1,35 @@
-import React from 'react';
-import {useSelector} from 'react-redux';
+import React, { useEffect } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom';
 import CheckoutSteps from '../components/CheckoutSteps';
+import { ORDER_CREATE_RESET } from '../constants/orderConstants';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
+import { createOrder } from '../actions/orderActions';
 
 export default function PlaceOrderScreen(props) {
     const cart = useSelector((state) => state.cart);
     if (!cart.paymentMethod) {
       props.history.push('/payment');
     }
+    const orderCreate = useSelector(state => state.orderCreate);
+    const { loading, success, error, order } = orderCreate;
     const toPrice = (num) => Number(num.toFixed(2)); // arrondire à 2 chiffres apres la virgule
     cart.itemsPrice = toPrice(cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0 ));
 
     cart.shippingPrice = cart.itemsPrice > 100? toPrice(0): toPrice(10);
-    cart.taxePrice = toPrice(0.15 * cart.itemsPrice);
-    cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxePrice;
-
+    cart.taxPrice = toPrice(0.15 * cart.itemsPrice);
+    cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
+    const dispatch = useDispatch();
     const PlaceOrderHandler = () =>{
-
+        dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
     };
+    useEffect(() => {
+        if (success) {
+        props.history.push(`/order/${order._id}`);
+        dispatch({ type: ORDER_CREATE_RESET });
+        }
+    }, [dispatch, order, props.history, success]);
     return (
         <div>
             <CheckoutSteps step1 step2 step3 step4 ></CheckoutSteps>
@@ -91,7 +103,7 @@ export default function PlaceOrderScreen(props) {
                             <li>
                                 <div className="row">
                                     <div>Taxe</div>
-                                    <div>{cart.taxePrice.toFixed(2)} €</div>
+                                    <div>{cart.taxPrice.toFixed(2)} €</div>
                                 </div>
                             </li>
                             <li>
@@ -103,6 +115,8 @@ export default function PlaceOrderScreen(props) {
                             <li>
                                 <button type="button" onClick={PlaceOrderHandler} className="primary block" disabled={cart.cartItems.length === 0}>Payer</button>
                             </li>
+                            {loading && <LoadingBox></LoadingBox>}
+                            {error && <MessageBox variant="danger">{error}</MessageBox>}
                         </ul>
                     </div>
                 </div>

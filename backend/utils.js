@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import jwt, { decode } from 'jsonwebtoken';
 
 export const generateToken = (user) => {
     return jwt.sign({
@@ -10,3 +10,20 @@ export const generateToken = (user) => {
         expiresIn: '30d',
     });
 };
+
+export const isAuth = (req, res, next) => {
+    const authorization = req.headers.authorization;
+    if (authorization) {
+        const token = authorization.slice(7, authorization.length);
+        jwt.verify(token, process.env.JWT_SECRET || 'somethingsecret', (err, decode) => {
+            if (err) {
+                res.status(401).send({ message: 'Jeton invalide' });
+            } else {
+                req.user = decode;
+                next();
+            }
+        });
+    } else {
+        res.status(401).send({ message: 'Jeton inexistant' });
+    }
+}

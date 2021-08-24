@@ -225,7 +225,6 @@ img.large {
 }
 .from label{
   margin: 1rem 0;
-  display: block;
 }
 
 /*dropdown*/
@@ -265,3 +264,5 @@ img.large {
   border-top-color: #f08000;
   color: #f08000;
 }
+
+

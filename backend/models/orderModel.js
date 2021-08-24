@@ -14,7 +14,7 @@ const orderSchema = new mongoose.Schema({
         },
     }],
     shippingAddress: {
-        fullname: { type: String, required: true },
+        fullName: { type: String, required: true },
         address: { type: String, required: true },
         city: { type: String, required: true },
         postalCode: { type: String, required: true },
@@ -22,7 +22,7 @@ const orderSchema = new mongoose.Schema({
     },
     paymentMethod: { type: String, required: true },
     itemsPrice: { type: Number, required: true },
-    ShippingPrice: { type: Number, required: true },
+    shippingPrice: { type: Number, required: true },
     taxPrice: { type: Number, required: true },
     totalPrice: { type: Number, required: true },
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },

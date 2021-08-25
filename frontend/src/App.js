@@ -12,6 +12,7 @@ import PaymentMethodScreen from './screens/PaymentMethodScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
                   <Link to="#">{userInfo.name} <i className="fa fa-caret-down"></i></Link>
                   <ul className="dropdown-content">
                     <li><Link to='/orderhistory'>Historique des réservations</Link></li>
+                    <li><Link to='/profile'>Profil utilisateur</Link></li>
                     <li><Link to="#signout" onClick={signoutHandler}>Se deconnecter</Link></li>
                     
                   </ul>
@@ -63,6 +65,7 @@ function App() {
           <Route path="/placeorder" component={PlaceOrderScreen}></Route>
           <Route path="/order/:id" component={OrderScreen}></Route>
           <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
+          <Route path="/profile" component={ProfileScreen}></Route>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
         <footer className="row center">All right Reserved</footer>

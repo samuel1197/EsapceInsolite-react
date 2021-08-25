@@ -95,6 +95,9 @@ button.primary{
 button.block{
   width: 100%;
 }
+button.small{
+  font-size: 1.2rem;
+}
 a.brand{
   color: white;
   font-size: 3rem;
@@ -243,13 +246,14 @@ img.large {
   position: absolute;
   display: none;
   right: 0;
-  min-width: 15rem;
+  min-width: 25rem;
   padding: 1rem;
   z-index: 1;
   background-color: #203040;
   margin: 0;
   margin-top: 0.4rem;
   border-radius: 0.5rem;
+  
 }
 
 .dropdown:hover .dropdown-content {
@@ -271,3 +275,23 @@ img.large {
 }
 
 
+/*Table*/
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table tbody tr:nth-of-type(odd){
+  background-color: #f4f4f4;
+}
+
+.table td, .table th{
+  text-align:left;
+  border: 0.1rem solid #e4e4e4;
+  padding: 0.5rem;
+}
+
+.table button{
+  margin: 0 0.2rem;
+}

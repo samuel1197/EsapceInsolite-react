@@ -14,6 +14,9 @@ import OrderScreen from './screens/OrderScreen';
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import PrivateRoute from './components/PrivateRoute';
+import ProductAdminListScreen from './screens/ProductAdminListScreen';
+import AdminRoute from "./components/AdminRoute";
+import ProductEditScreen from './screens/ProductEditScreen';
 
 
 function App() {
@@ -79,7 +82,8 @@ function App() {
         </header>
         <main>
           <Route path="/cart/:id?" component={CartScreen}></Route>
-          <Route path="/product/:id" component={ProductScreen}></Route>
+          <Route path="/product/:id" component={ProductScreen} exact></Route>
+          <Route path="/product/:id/edit" component={ProductEditScreen} exact></Route>
           <Route path="/signin" component={SigninScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>
           <Route path="/shipping" component={ShippingAdressScreen}></Route>
@@ -88,6 +92,7 @@ function App() {
           <Route path="/order/:id" component={OrderScreen}></Route>
           <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
           <PrivateRoute path="/profile" component={ProfileScreen}></PrivateRoute>
+          <AdminRoute path="/locationlist" component={ProductAdminListScreen}></AdminRoute>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
         <footer className="row center">All right Reserved</footer>

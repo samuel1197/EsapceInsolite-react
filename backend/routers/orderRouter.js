@@ -46,6 +46,7 @@ orderRouter.post(
         }
     })
 );
+
 orderRouter.get(
     '/:id',
     isAuth,
@@ -72,6 +73,21 @@ orderRouter.put(
             res.send({ message: 'Commande payé', order: updatedOrder });
         } else {
             res.status(404).send({ mesage: 'Commande non trouvé' });
+        }
+    })
+);
+
+orderRouter.delete(
+    '/:id',
+    isAuth,
+    isAdmin,
+    expressAsyncHandler(async (req, res) => {
+        const order = await Order.findById(req.params.id);
+        if (order) {
+            const deleteOrder = await order.remove();
+            res.send({ message: 'Réservation supprimé', order: deleteOrder });
+        } else {
+            res.status(404).send({ message: 'Réservation non trouvée' });
         }
     })
 );

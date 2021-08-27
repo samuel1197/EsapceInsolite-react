@@ -29,7 +29,7 @@ export default function ProductAdminListScreen(props) {
     
     const deleteHandler = (product) =>{
         //dispatch action de suppression
-        if(window.confirm('Etes voius sur de vouloir supprimer cette location ?')) {
+        if(window.confirm('Êtes-vous sur de vouloir supprimer cette location ?')) {
             dispatch(deleteProduct(product._id));
         }
     };

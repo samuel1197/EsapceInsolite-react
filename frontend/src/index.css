@@ -54,6 +54,7 @@ h2{
   font-size: 1.6rem;
   padding: 1rem 0;
 }
+
 a{
   text-decoration: none;
 }
@@ -89,15 +90,19 @@ button{
 input:hover, select:hover, textarea:hover, button:hover{
   border: 0.1rem #404040 solid;
 }
+
 button.primary{
   background-color: #f0c040;
 }
+
 button.block{
   width: 100%;
 }
+
 button.small{
   font-size: 1.2rem;
 }
+
 a.brand{
   color: white;
   font-size: 3rem;
@@ -109,6 +114,7 @@ header a{
   color: white;
   padding: 1rem ;
 }
+
 .badge{
   background-color: #f02020;
   color: #ffffff;
@@ -117,6 +123,7 @@ header a{
   font-size: 1.4rem;
   margin-left: 0.2rem;
 }
+
 .row{
   display: flex;
   flex-wrap: wrap;
@@ -139,6 +146,7 @@ header a{
 .col-2{
   flex: 2 1 50rem;
 }
+
 .min-30{
   min-width: 30rem;
 }
@@ -146,15 +154,20 @@ header a{
 /*Images*/
 img{
   border-radius: 0.5rem ;
+  width: 650px;
+  /* height: 366px; */
 }
+
 img.small{
   max-width: 5rem;
   width: 100%;
 }
+
 img.medium{
   max-width: 29rem;
   width: 100%;
 }
+
 img.large {
   width: 100%;
 }
@@ -164,6 +177,7 @@ img.large {
   background-color: #f8f8f8;
   border-radius: 0.5rem;
   margin: 1rem;
+  width: 650px;
 }
 
 .card-body{
@@ -183,9 +197,11 @@ img.large {
   color: #f0c040;
   margin: 0.1rem;
 }
+
 .rating span:last-child{
   color: black;
 }
+
 /* Alerte */
 .loading{
   display: block !important;

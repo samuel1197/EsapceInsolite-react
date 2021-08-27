@@ -17,6 +17,7 @@ import PrivateRoute from './components/PrivateRoute';
 import ProductAdminListScreen from './screens/ProductAdminListScreen';
 import AdminRoute from "./components/AdminRoute";
 import ProductEditScreen from './screens/ProductEditScreen';
+import OrderAdminListScreen from './screens/OrderAdminListScreen';
 
 
 function App() {
@@ -93,6 +94,7 @@ function App() {
           <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
           <PrivateRoute path="/profile" component={ProfileScreen}></PrivateRoute>
           <AdminRoute path="/locationlist" component={ProductAdminListScreen}></AdminRoute>
+          <AdminRoute path="/orderList" component={OrderAdminListScreen}></AdminRoute>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
         <footer className="row center">All right Reserved</footer>

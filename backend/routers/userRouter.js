@@ -3,7 +3,7 @@ import expressAsyncHandler from "express-async-handler";
 import bcrypt from 'bcryptjs';
 import data from "../data.js";
 import User from "../models/userModel.js";
-import { generateToken, isAuth } from "../utils.js";
+import { generateToken, isAdmin, isAuth } from "../utils.js";
 
 const userRouter = express.Router();
 
@@ -86,6 +86,53 @@ userRouter.put(
                 isAdmin: updatedUser.isAdmin,
                 token: generateToken(updatedUser),
             });
+        }
+    })
+);
+
+userRouter.get(
+    '/',
+    isAuth,
+    isAdmin,
+    expressAsyncHandler(async (req, res) => {
+        const users = await User.find({});
+        res.send(users);
+    })
+);
+
+userRouter.delete(
+    '/:id',
+    isAuth,
+    isAdmin,
+    expressAsyncHandler(async (req, res) => {
+        const user = await User.findById(req.params.id);
+        if (user) {
+            if (user.email === 'admin@example.com') {
+                res.status(400).send({ message: 'Impossible de supprimer un utilisateur administrateur' });
+                return;
+            }
+            const deleteUser = await user.remove();
+            res.send({ message: 'Utilisateur supprimé', user: deleteUser });
+        } else {
+            res.status(404).send({ message: 'Utilisateur non trouvé' });
+        }
+    })
+);
+
+userRouter.put(
+    '/:id/',
+    isAuth,
+    isAdmin,
+    expressAsyncHandler(async (req, res) => {
+        const user = await User.findById(req.params.id);
+        if (user) {
+            user.name = req.body.name || user.name;
+            user.email = req.body.email || user.email;
+            user.isAdmin = req.body.isAdmin || user.isAdmin;
+            const updatedUser = await user.save();
+            res.send({ message: 'Utilisateur modifier', user: updatedUser });
+        } else {
+            res.status(404).send({ message: 'Utilisateur non trouvé' });
         }
     })
 );

@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteUser, listUsers } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import { USER_DETAILS_RESET } from '../constants/userConstants';
 
-export default function UserAdminListScreen() {
+export default function UserAdminListScreen(props) {
     const userList = useSelector(state => state.userList);
     const { loading, error, users } = userList;
 
@@ -14,12 +15,13 @@ export default function UserAdminListScreen() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(listUsers());
+        dispatch({ type: USER_DETAILS_RESET});
     }, [dispatch, successDelete]);
     const deleteHandler = (user) => {
         if (window.confirm('Êtes-vous sur de vouloir supprimer cet utilisateur?')) {
             dispatch(deleteUser(user._id));
         }
-    }
+    };
     return (
         <div>
             <h1>Users</h1>
@@ -36,9 +38,9 @@ export default function UserAdminListScreen() {
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>NAME</th>
+                                <th>NOM</th>
                                 <th>EMAIL</th>
-                                <th>IS ADMIN</th>
+                                <th>EST ADMIN</th>
                                 <th>ACTIONS</th>
                             </tr>
                             </thead>
@@ -51,7 +53,7 @@ export default function UserAdminListScreen() {
                                             <td>{user.email}</td>
                                             <td>{user.isAdmin ? 'OUI' : 'NON'}</td>
                                             <td>
-                                                <button>Modifier</button>
+                                                <button type="button" className="small" onClick={() => props.history.push(`/user/${user._id}/edit`)}>Modifier</button>
                                                 <button type="button" className="small" onClick={() => deleteHandler(user)}>Supprimer</button>
                                             </td>
                                         </tr>

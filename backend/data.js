@@ -15,7 +15,7 @@ const data = {
             isAdmin: false,
         }
     ],
-    products:[
+    locations:[
         {
             name:'Cabane-besancon',
             category:'Cabane',

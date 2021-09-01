@@ -2,7 +2,7 @@ import {  createStore, applyMiddleware, compose, combineReducers } from "redux";
 import thunk from 'redux-thunk';
 import { cartReducer } from "./reducers/cartReducers";
 import { orderCreateReducer, orderDeleteReducer, orderDetailsReducer, orderListReducer, orderMineListReducer, orderPayReducer } from "./reducers/orderReducers";
-import { productCreateReducer, productDeleteReducer, productDetailsReducer, productListReducer, productUpdateReducer } from "./reducers/productReducers";
+import { locationCreateReducer, locationDeleteReducer, locationDetailsReducer, locationListReducer, locationUpdateReducer } from "./reducers/locationReducers";
 import { userDeleteReducer, userDetailsReducer, userListReducer, userRegisterReducer, userSinginReducer, userUpdateProfileReducer, userUpdateReducer } from "./reducers/userReducers";
 
 const initialState = {
@@ -20,8 +20,8 @@ const initialState = {
     },
 };
 const reducer = combineReducers({
-    productList: productListReducer,
-    productDetails: productDetailsReducer,
+    locationList: locationListReducer,
+    locationDetails: locationDetailsReducer,
     cart: cartReducer,
     userSignin: userSinginReducer,
     userRegister: userRegisterReducer,
@@ -31,9 +31,9 @@ const reducer = combineReducers({
     orderMineList: orderMineListReducer,
     userDetails: userDetailsReducer,
     userUpdateProfile: userUpdateProfileReducer,
-    productCreate: productCreateReducer,
-    productUpdate: productUpdateReducer,
-    productDelete: productDeleteReducer,
+    locationCreate: locationCreateReducer,
+    locationUpdate: locationUpdateReducer,
+    locationDelete: locationDeleteReducer,
     orderList: orderListReducer,
     orderDelete: orderDeleteReducer,
     userList: userListReducer,

@@ -5,7 +5,7 @@ import { addToCart, removeFromCart } from '../actions/cartActions';
 import MessageBox from '../components/MessageBox';
 
 export default function CartScreen(props) {
-  const productId = props.match.params.id;
+  const locationId = props.match.params.id;
   const qty = props.location.search
     ? Number(props.location.search.split('=')[1])
     : 1;
@@ -13,10 +13,10 @@ export default function CartScreen(props) {
   const { cartItems } = cart;
   const dispatch = useDispatch();
   useEffect(() => {
-    if (productId) {
-      dispatch(addToCart(productId, qty));
+    if (locationId) {
+      dispatch(addToCart(locationId, qty));
     }
-  }, [dispatch, productId, qty]);
+  }, [dispatch, locationId, qty]);
 
   const removeFromCartHandler = (id) => {
     // delete action
@@ -37,7 +37,7 @@ export default function CartScreen(props) {
         ) : (
           <ul>
             {cartItems.map((item) => (
-              <li key={item.product}>
+              <li key={item.location}>
                 <div className="row">
                   <div>
                     <img
@@ -47,14 +47,14 @@ export default function CartScreen(props) {
                     ></img>
                   </div>
                   <div className="min-30">
-                    <Link to={`/product/${item.product}`}>{item.name}</Link>
+                    <Link to={`/location/${item.location}`}>{item.name}</Link>
                   </div>
                   <div>
                     <select
                       value={item.qty}
                       onChange={(e) =>
                         dispatch(
-                          addToCart(item.product, Number(e.target.value))
+                          addToCart(item.location, Number(e.target.value))
                         )
                       }
                     >
@@ -69,7 +69,7 @@ export default function CartScreen(props) {
                   <div>
                     <button
                       type="button"
-                      onClick={() => removeFromCartHandler(item.product)}
+                      onClick={() => removeFromCartHandler(item.location)}
                     >
                       Retirer
                     </button>

@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom';
-import { detailsProduct } from '../actions/productActions';
+import { detailsLocation } from '../actions/locationActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Rating from '../components/Rating';
 
 
 
-export default function ProductScreen(props){
+export default function LocationScreen(props){
     const dispatch = useDispatch();
-    const productId = props.match.params.id;
+    const locationId = props.match.params.id;
     const [qty, setQty] = useState(1);
-    const productDetails = useSelector((state) => state.productDetails);
-    const { loading, error, product} = productDetails;
+    const locationDetails = useSelector((state) => state.locationDetails);
+    const { loading, error, location} = locationDetails;
     
     useEffect(() =>{
-        dispatch(detailsProduct(productId));
-    }, [dispatch, productId]);
+        dispatch(detailsLocation(locationId));
+    }, [dispatch, locationId]);
     const addToCartHandler = () => {
-        props.history.push(`/cart/${productId}?qty=${qty}`);
+        props.history.push(`/cart/${locationId}?qty=${qty}`);
     };
     return (
         <div>
@@ -32,21 +32,21 @@ export default function ProductScreen(props){
                 <Link to="/">Retour</Link>
                 <div className='row top'>
                     <div className='col-2'>
-                        <img className="large" src={product.image} alt={product.name}></img>
+                        <img className="large" src={location.image} alt={location.name}></img>
                     </div>
                     <div className='col-1'>
                         <ul>
                             <li>
-                                <h1>{product.name}</h1>
+                                <h1>{location.name}</h1>
                             </li>
                             <li>
-                                <Rating rating={product.rating} numReviews={product.numReviews}></Rating>
+                                <Rating rating={location.rating} numReviews={location.numReviews}></Rating>
                             </li> 
                             <li>
-                                Prix : {product.price} €
+                                Prix : {location.price} €
                             </li> 
                             <li>
-                                <p>{product.description}</p>
+                                <p>{location.description}</p>
                             </li>
                         </ul>
                     </div>
@@ -56,14 +56,14 @@ export default function ProductScreen(props){
                                 <li>
                                     <div className="row">
                                         <div>Prix</div>
-                                        <div className="price">{product.price} €</div>
+                                        <div className="price">{location.price} €</div>
                                     </div>
                                 </li>
                                 <li>
                                     <div className="row">
                                         <div>Statut</div>
                                         <div>
-                                            {product.countInStock > 0 ? (
+                                            {location.countInStock > 0 ? (
                                                 <span className="success">Libre</span>
                                             ) : (
                                                 <span className="danger">Réserver</span>
@@ -72,14 +72,14 @@ export default function ProductScreen(props){
                                     </div>
                                 </li>
                                 {
-                                    product.countInStock > 0 && (
+                                    location.countInStock > 0 && (
                                     <>   
                                      <li>
                                          <div className="row">
                                              <div>Qty</div>
                                              <div>
                                                  <select value={qty} onChange={e => setQty(e.target.value)}>
-                                                    {[...Array(product.countInStock).keys()].map((x) =>(
+                                                    {[...Array(location.countInStock).keys()].map((x) =>(
                                                              <option key={x + 1} value={x + 1}>{x + 1}</option>
                                                          )
                                                     )}

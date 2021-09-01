@@ -49,7 +49,7 @@ export default function UserAdminListScreen(props) {
                                     users.map((user) => (
                                         <tr key={user._id}>
                                             <td>{user._id}</td>
-                                            <td>{user.name}</td>
+                                            <td>{user.lastname} {user.firstname}</td>
                                             <td>{user.email}</td>
                                             <td>{user.isAdmin ? 'OUI' : 'NON'}</td>
                                             <td>

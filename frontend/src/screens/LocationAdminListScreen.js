@@ -1,41 +1,41 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { createProduct, deleteProduct, listProducts } from '../actions/productActions';
+import { createLocation, deleteLocation, listLocations } from '../actions/locationActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import { PRODUCT_CREATE_RESET, PRODUCT_DELETE_RESET } from '../constants/productConstants';
+import { LOCATION_CREATE_RESET, LOCATION_DELETE_RESET } from '../constants/locationConstants';
 
-export default function ProductAdminListScreen(props) {
-    const productList = useSelector(state => state.productList);
-    const { loading, error, products} = productList;
+export default function LocationAdminListScreen(props) {
+    const locationList = useSelector(state => state.locationList);
+    const { loading, error, locations} = locationList;
 
-    const productCreate = useSelector((state) => state.productCreate);
-    const { loading: loadingCreate, error: errorCreate, success: successCreate, product: createdProduct} = productCreate;
+    const locationCreate = useSelector((state) => state.locationCreate);
+    const { loading: loadingCreate, error: errorCreate, success: successCreate, location: createdLocation} = locationCreate;
     
-    const productDelete = useSelector(state => state.productDelete);
-    const { loading: loadingDelete, error: errorDelete, success: successDelete} = productDelete;
+    const locationDelete = useSelector(state => state.locationDelete);
+    const { loading: loadingDelete, error: errorDelete, success: successDelete} = locationDelete;
     
     const dispatch = useDispatch();
     useEffect(() =>{
         if(successCreate) {
-            dispatch({type: PRODUCT_CREATE_RESET});
-            props.history.push(`/product/${createdProduct._id}/edit`);
+            dispatch({type: LOCATION_CREATE_RESET});
+            props.history.push(`/location/${createdLocation._id}/edit`);
         }
         if(successDelete) {
-            dispatch({type: PRODUCT_DELETE_RESET});
+            dispatch({type: LOCATION_DELETE_RESET});
         }
-        dispatch(listProducts());
-    }, [createdProduct, dispatch, props.history, successCreate, successDelete]);
+        dispatch(listLocations());
+    }, [createdLocation, dispatch, props.history, successCreate, successDelete]);
     
-    const deleteHandler = (product) =>{
+    const deleteHandler = (location) =>{
         //dispatch action de suppression
         if(window.confirm('Êtes-vous sur de vouloir supprimer cette location ?')) {
-            dispatch(deleteProduct(product._id));
+            dispatch(deleteLocation(location._id));
         }
     };
     const createHandler = () =>{
         //dispatch action de creation
-        dispatch(createProduct());
+        dispatch(createLocation());
     };
     return (
         <div>
@@ -63,15 +63,15 @@ export default function ProductAdminListScreen(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {products.map((product) => (
-                        <tr key={product._id}>
-                            <td>{product._id}</td>
-                            <td>{product.name}</td>
-                            <td>{product.price}</td>
-                            <td>{product.category}</td>
+                    {locations.map((location) => (
+                        <tr key={location._id}>
+                            <td>{location._id}</td>
+                            <td>{location.name}</td>
+                            <td>{location.price}</td>
+                            <td>{location.category}</td>
                             <td>
-                                <button type ="button" className="small" onClick={() => props.history.push(`/product/${product._id}/edit`)}>Modifier</button>
-                                <button type ="button" className="small" onClick={() => deleteHandler(product) }>Supprimer</button>
+                                <button type ="button" className="small" onClick={() => props.history.push(`/location/${location._id}/edit`)}>Modifier</button>
+                                <button type ="button" className="small" onClick={() => deleteHandler(location) }>Supprimer</button>
                             </td>
                         </tr>
                     ))}

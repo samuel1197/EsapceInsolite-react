@@ -83,7 +83,7 @@ export default function OrderScreen(props) {
                                <h2>Récapitulatif du panier</h2> 
                                <ul>
                                     {order.orderItems.map((item) => (
-                                    <li key={item.product}>
+                                    <li key={item.location}>
                                         <div className="row">
                                             <div>
                                                 <img
@@ -93,7 +93,7 @@ export default function OrderScreen(props) {
                                                 ></img>
                                             </div>
                                             <div className="min-30">
-                                                <Link to={`/product/${item.product}`}>{item.name}</Link>
+                                                <Link to={`/location/${item.location}`}>{item.name}</Link>
                                             </div>
                                             
                                             <div>{item.price} €</div>

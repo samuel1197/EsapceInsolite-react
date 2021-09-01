@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import { stringify } from 'qs';
 
 const orderSchema = new mongoose.Schema({
     orderItems: [{
@@ -7,9 +6,9 @@ const orderSchema = new mongoose.Schema({
         qty: { type: Number, required: true },
         image: { type: String, required: true },
         price: { type: Number, required: true },
-        product: {
+        location: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Product',
+            ref: 'Location',
             required: true,
         },
     }],

@@ -24,9 +24,17 @@ userRouter.post(
         if (bcrypt.compareSync(req.body.password, user.password)) {
             res.send({
                 _id: user._id,
-                name: user.name,
+                lastname: user.lastname,
+                firstname: user.firstname,
                 email: user.email,
                 isAdmin: user.isAdmin,
+                age: user.age,
+                phoneNumber: user.phoneNumber,
+                gender: user.gender,
+                city: user.city,
+                address: user.address,
+                postalCode: user.postalCode,
+                country: user.country,
                 token: generateToken(user),
             });
             return;
@@ -40,16 +48,32 @@ userRouter.post(
     '/register',
     expressAsyncHandler(async (req, res) => {
         const user = new User({
-            name: req.body.name,
+            lastname: req.body.lastname,
+            firstname: req.body.firstname,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 8),
+            age: req.body.age,
+            phoneNumber: req.body.phoneNumber,
+            gender: req.body.gender,
+            city: req.body.city,
+            address: req.body.address,
+            postalCode: req.body.postalCode,
+            country: req.body.country,
         });
         const createdUser = await user.save();
         res.send({
             _id: user._id,
-            name: user.name,
+            lastname: user.lastname,
+            firstname: user.firstname,
             email: user.email,
             isAdmin: user.isAdmin,
+            age: user.age,
+            phoneNumber: user.phoneNumber,
+            gender: user.gender,
+            city: user.city,
+            address: user.address,
+            postalCode: user.postalCode,
+            country: user.country,
             token: generateToken(createdUser),
         })
     })
@@ -73,17 +97,33 @@ userRouter.put(
     expressAsyncHandler(async (req, res) => {
         const user = await User.findById(req.user._id);
         if (user) {
-            user.name = req.body.name || user.name;
+            user.lastname = req.body.lastname || user.lastname;
+            user.firstname = req.body.firstname || user.firstname;
             user.email = req.body.email || user.email;
+            user.age = req.body.age || user.age;
+            user.phoneNumber = req.body.phoneNumber || user.phoneNumber;
+            user.gender = req.body.gender || user.gender;
+            user.city = req.body.city || user.city;
+            user.address = req.body.address || user.address;
+            user.postalCode = req.body.postalCode || user.postalCode;
+            user.country = req.body.country || user.country;
             if (req.body.password) {
                 user.password = bcrypt.hashSync(req.body.password, 8);
             }
             const updatedUser = await user.save();
             res.send({
                 _id: updatedUser._id,
-                name: updatedUser.name,
+                lastname: updatedUser.lastname,
+                firstname: updatedUser.firstname,
                 email: updatedUser.email,
                 isAdmin: updatedUser.isAdmin,
+                age: updatedUser.age,
+                phoneNumber: updatedUser.phoneNumber,
+                gender: updatedUser.gender,
+                city: updatedUser.city,
+                address: updatedUser.address,
+                postalCode: updatedUser.postalCode,
+                country: updatedUser.country,
                 token: generateToken(updatedUser),
             });
         }
@@ -126,9 +166,17 @@ userRouter.put(
     expressAsyncHandler(async (req, res) => {
         const user = await User.findById(req.params.id);
         if (user) {
-            user.name = req.body.name || user.name;
+            user.lastname = req.body.lastname || user.lastname;
+            user.firstname = req.body.firstname || user.firstname;
             user.email = req.body.email || user.email;
             user.isAdmin = req.body.isAdmin || user.isAdmin;
+            user.age = req.body.age || user.age;
+            user.phoneNumber = req.body.phoneNumber || user.phoneNumber;
+            user.gender = req.body.gender || user.gender;
+            user.city = req.body.city || user.city;
+            user.address = req.body.address || user.address;
+            user.postalCode = req.body.postalCode || user.postalCode;
+            user.country = req.body.country || user.country;
             const updatedUser = await user.save();
             res.send({ message: 'Utilisateur modifier', user: updatedUser });
         } else {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Link, Route } from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
-import ProductScreen from './screens/ProductScreen';
+import LocationScreen from './screens/LocationScreen';
 import CartScreen from './screens/CartScreen';
 import { useDispatch, useSelector } from 'react-redux';
 import SigninScreen from './screens/SigninScreen';
@@ -14,9 +14,9 @@ import OrderScreen from './screens/OrderScreen';
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import PrivateRoute from './components/PrivateRoute';
-import ProductAdminListScreen from './screens/ProductAdminListScreen';
+import LocationAdminListScreen from './screens/LocationAdminListScreen';
 import AdminRoute from "./components/AdminRoute";
-import ProductEditScreen from './screens/ProductEditScreen';
+import LocationEditScreen from './screens/LocationEditScreen';
 import OrderAdminListScreen from './screens/OrderAdminListScreen';
 import UserAdminListScreen from './screens/UserAdminListScreen';
 import UserAdminEditScreen from './screens/UserAdminEditScreen';
@@ -48,7 +48,7 @@ function App() {
             {
               userInfo ? (
                 <div className="dropdown">
-                  <Link to="#">{userInfo.name} <i className="fa fa-caret-down"></i></Link>
+                  <Link to="#">{userInfo.firstname} <i className="fa fa-caret-down"></i></Link>
                   <ul className="dropdown-content">
                     <li><Link to='/orderhistory'>Historique des réservations</Link></li>
                     <li><Link to='/profile'>Profil utilisateur</Link></li>
@@ -85,8 +85,8 @@ function App() {
         </header>
         <main>
           <Route path="/cart/:id?" component={CartScreen}></Route>
-          <Route path="/product/:id" component={ProductScreen} exact></Route>
-          <Route path="/product/:id/edit" component={ProductEditScreen} exact></Route>
+          <Route path="/location/:id" component={LocationScreen} exact></Route>
+          <Route path="/location/:id/edit" component={LocationEditScreen} exact></Route>
           <Route path="/signin" component={SigninScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>
           <Route path="/shipping" component={ShippingAdressScreen}></Route>
@@ -95,7 +95,7 @@ function App() {
           <Route path="/order/:id" component={OrderScreen}></Route>
           <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
           <PrivateRoute path="/profile" component={ProfileScreen}></PrivateRoute>
-          <AdminRoute path="/locationlist" component={ProductAdminListScreen}></AdminRoute>
+          <AdminRoute path="/locationlist" component={LocationAdminListScreen}></AdminRoute>
           <AdminRoute path="/orderlist" component={OrderAdminListScreen}></AdminRoute>
           <AdminRoute path="/userlist" component={UserAdminListScreen}></AdminRoute>
           <AdminRoute path="/user/:id/edit" component={UserAdminEditScreen}></AdminRoute>

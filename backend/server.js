@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import path from 'path';
-import productRouter from "./routers/productRouter.js";
+import locationRouter from "./routers/locationRouter.js";
 import userRouter from "./routers/userRouter.js";
 import orderRouter from "./routers/orderRouter.js";
 import uploadRouter from "./routers/uploadRouter.js";
@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/espaceinsolite'
 app.use('/api/uploads', uploadRouter);
 app.use('/api/users', userRouter);
 
-app.use('/api/products', productRouter);
+app.use('/api/locations', locationRouter);
 
 app.use('/api/orders', orderRouter);
 app.get('/api/config/paypal' , (req, res) =>{

@@ -5,6 +5,7 @@ import { detailsLocation } from '../actions/locationActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Rating from '../components/Rating';
+import Calendar from '../components/Calendar';
 
 
 
@@ -74,23 +75,31 @@ export default function LocationScreen(props){
                                 {
                                     location.countInStock > 0 && (
                                     <>   
-                                     <li>
-                                         <div className="row">
-                                             <div>Qty</div>
-                                             <div>
-                                                 <select value={qty} onChange={e => setQty(e.target.value)}>
-                                                    {[...Array(location.countInStock).keys()].map((x) =>(
-                                                             <option key={x + 1} value={x + 1}>{x + 1}</option>
-                                                         )
-                                                    )}
-                                                    
-                                                 </select>
-                                             </div>
-                                         </div>
-                                     </li>
-                                        <li>
-                                            <button onClick={addToCartHandler} className="primary block">Réserver</button>
-                                        </li>
+                                    <li>
+                                        <div className="row">
+                                            <div>Qty</div>
+                                            <div>
+                                                <select value={qty} onChange={e => setQty(e.target.value)}>
+                                                {[...Array(location.countInStock).keys()].map((x) =>(
+                                                            <option key={x + 1} value={x + 1}>{x + 1}</option>
+                                                        )
+                                                )}
+                                                
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div className="row">
+                                                <div>Réservation : </div>
+                                                <div>
+                                                    <Calendar></Calendar>
+                                                </div>
+                                            </div>
+                                    </li>
+                                    <li>
+                                        <button onClick={addToCartHandler} className="primary block">Réserver</button>
+                                    </li>
                                     </>
                                     )
                                 }

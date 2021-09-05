@@ -20,6 +20,9 @@ import LocationEditScreen from './screens/LocationEditScreen';
 import OrderAdminListScreen from './screens/OrderAdminListScreen';
 import UserAdminListScreen from './screens/UserAdminListScreen';
 import UserAdminEditScreen from './screens/UserAdminEditScreen';
+import img1 from './images/espaceInsolite1logo.png';
+
+
 
 
 function App() {
@@ -37,10 +40,10 @@ function App() {
       <div className="grid-container">
         <header className="row">
           <div>
-            <Link className="brand" to="/">Espace Insolite</Link>
+            <Link className="brand" to="/"><img className="logo1" src={img1} alt="" /></Link>
           </div>
           <div>
-            <Link to="/cart">Cart
+            <Link to="/cart">Panier
             {cartItems.length > 0 && (
               <span className='badge'>{cartItems.length}</span>
             )}
@@ -101,7 +104,18 @@ function App() {
           <AdminRoute path="/user/:id/edit" component={UserAdminEditScreen}></AdminRoute>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
-        <footer className="row center">All right Reserved</footer>
+        <footer className="row center">
+          <div className="socialnet">
+          <Link to="#"><i className="fa fa-facebook"></i></Link>
+          </div>
+          <div className="socialnet">
+          <Link to="#"><i className="fa fa-instagram"></i></Link>
+          </div>
+          <div className="socialnet">
+          <Link to="#"><i className="fa fa-linkedin"></i></Link>
+          </div>
+          </footer>
+          <div className="subfooter">All right Reserved</div>
       </div>
     </BrowserRouter>
   );

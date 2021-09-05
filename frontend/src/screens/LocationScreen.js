@@ -91,11 +91,11 @@ export default function LocationScreen(props){
                                     </li>
                                     <li>
                                         <div className="row">
-                                                <div>Réservation : </div>
-                                                <div>
-                                                    <Calendar></Calendar>
-                                                </div>
+                                            <div>Réservation : </div>
+                                            <div className="cal">
+                                                <Calendar></Calendar>
                                             </div>
+                                        </div>
                                     </li>
                                     <li>
                                         <button onClick={addToCartHandler} className="primary block">Réserver</button>

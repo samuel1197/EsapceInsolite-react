@@ -4,6 +4,7 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { useDispatch, useSelector } from 'react-redux';
 import { listLocations } from '../actions/locationActions';
+import img2 from '../images/tayrona-lagune-reflet-palmiers1.png';
 
 export default function HomeScreen() {
   const dispatch = useDispatch();
@@ -15,6 +16,8 @@ export default function HomeScreen() {
   }, [dispatch]);
   return (
     <div>
+      <img className="post" src={img2} alt="baniere" />
+      <h2> Nos Produits</h2>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (

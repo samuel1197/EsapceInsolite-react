@@ -65,7 +65,7 @@ export default function CartScreen(props) {
                       ))}
                     </select>
                   </div>
-                  <div>${item.price}</div>
+                  <div>{item.price} x {2} = {item.price * 2} €</div>
                   <div>
                     <button
                       type="button"

@@ -75,7 +75,7 @@ userRouter.post(
             postalCode: user.postalCode,
             country: user.country,
             token: generateToken(createdUser),
-        })
+        });
     })
 );
 

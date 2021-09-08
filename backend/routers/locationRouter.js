@@ -37,7 +37,7 @@ locationRouter.get(
 
 locationRouter.post('/', isAuth, isAdmin, expressAsyncHandler(async(req, res) =>{
     const location = new Location({
-        name:'sample name' + Date.now(),
+        name:'Sample name' + Date.now(),
         image: '/images/cabane-besancon.jpg',
         price: 0,
         category: 'sample category',

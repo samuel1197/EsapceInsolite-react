@@ -12,7 +12,7 @@ const locationSchema = new mongoose.Schema(
         numReviews: { type: Number, required: true },
         nbBedroom: { type: Number, required: true },
         capReception: { type: Number, required: true },
-        disponibility: { type: Boolean,default: true, required: true },
+        disponibility: { type: Boolean, default: true, required: true },
         superficy: { type: Number, required: true },
         address: { type: String, required: true },
         postalCode: { type: Number, required: true },

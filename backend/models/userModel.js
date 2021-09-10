@@ -38,14 +38,6 @@ const emailValidator = [
     })
 ];*/
 
-/* const ageValidator = [
-    validate({
-        validator: "matches",
-        arguments: /^[1-9][0-9]$/,
-        message: "Votre age doit être en chiffres."
-    })
-];*/
-
 const phoneValidator = [
     validate({
         validator: "matches",
@@ -61,13 +53,6 @@ const genderValidator = [
         message: "Etes-vous un homme ou une femme."
     })
 ];
-
-/* const postalCodeValidator = [
-    validate({
-        validator: "isPostalCode",
-        arguments: ['FR']
-    })
-];*/
 
 const cityValidator = [
     validate({

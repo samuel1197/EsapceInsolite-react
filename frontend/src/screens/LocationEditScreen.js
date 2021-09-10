@@ -97,71 +97,71 @@ export default function LocationEditScreen(props) {
                 { loading? <LoadingBox></LoadingBox>
                 :
                 error? <MessageBox variant="danger">{error}</MessageBox>
-            :
-            <>
-                <div>
-                    <label htmlFor="name">Nom</label>
-                    <input id="name" type="text" placeholder="Entrer le nom" value={name} onChange={(e) => setName(e.target.value)}></input>
-                </div>
-                <div>
-                    <label htmlFor="prix">Prix</label>
-                    <input id="prix" type="text" placeholder="Entrer le prix" value={price} onChange={(e) => setPrice(e.target.value)}></input>
-                </div>
-                <div>
-                    <label htmlFor="image">Image</label>
-                    <input id="image" type="text" placeholder="Entrer votre image" value={image} onChange={(e) => setImage(e.target.value)}></input>
-                </div>
-                <div>
-                    <label htmlFor="imageFile">Fichier image : </label>
-                    <input id="imageFile" type="file"  label="Choisir une image" onChange={uploadFileHandler}></input>
-                    {loadingUpload && <LoadingBox></LoadingBox> }
-                    {errorUpload && <MessageBox variant="danger">{errorUpload}</MessageBox>}
-                </div>
-                <div>
-                    <label htmlFor="category">Categorie</label>
-                    <input id="category" type="text" placeholder="Entrer votre categorie" value={category} onChange={(e) => setCategory(e.target.value)}></input>
-                </div>
-                <div>
-                    <label htmlFor="countInStock">Stock</label>
-                    <input id="countInStock" type="text" placeholder="Entrer votre quantité" value={countInStock} onChange={(e) => setCountInStock(e.target.value)}></input>
-                </div>
-                <div>
-                    <label htmlFor="description">Description</label>
-                    <textarea id="description" rows="3" type="text" placeholder="Entrer votre Description" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
-                </div>
-                <div>
-                    <label htmlFor="nbBedroom">Nombre chambres</label>
-                    <input id="nbBedroom" type="text" placeholder="Entrer le nombre de chambres" value={nbBedroom} onChange={(e) => setNbBedroom(e.target.value)}></input>
-                </div>
-                <div>
-                    <label htmlFor="capReception">Capacité de réception</label>
-                    <input id="capReception" type="text" placeholder="Entrer votre capacité de réception" value={capReception} onChange={(e) => setCapReception(e.target.value)}></input>
-                </div>
-                <div>
-                    <label htmlFor="disponibility">Est disponible</label>
-                    <input id="disponibility" type="checkbox" checked={disponibility} onChange={(e) => setDisponibility(e.target.checked)}></input>
-                </div>
-                <div>
-                    <label htmlFor="superficy">Superficie</label>
-                    <input id="superficy" type="text" placeholder="Entrer la superficie" value={superficy} onChange={(e) => setSuperficy(e.target.value)}></input>
-                </div>
-                <div>
-                    <label htmlFor="address">Adresse</label>
-                    <input id="address" type="text" placeholder="Entrer votre adresse" value={address} onChange={(e) => setAddress(e.target.value)}></input>
-                </div>
-                <div>
-                    <label htmlFor="postalCode">Code postal</label>
-                    <input id="postalCode" type="text" placeholder="Entrer votre code postal" value={postalCode} onChange={(e) => setPostalCode(e.target.value)}></input>
-                </div>
-                <div>
-                    <label htmlFor="city">Ville</label>
-                    <input id="city" type="text" placeholder="Entrer votre ville" value={city} onChange={(e) => setCity(e.target.value)}></input>
-                </div>
-                <div>
-                    <label></label>
-                    <button className="primary" type="submit">Modifier</button>
-                </div>
-            </>}
+                :
+                <>
+                    <div>
+                        <label htmlFor="name">Nom</label>
+                        <input id="name" type="text" placeholder="Entrer le nom" value={name} onChange={(e) => setName(e.target.value)}></input>
+                    </div>
+                    <div>
+                        <label htmlFor="prix">Prix</label>
+                        <input id="prix" type="text" placeholder="Entrer le prix" value={price} onChange={(e) => setPrice(e.target.value)}></input>
+                    </div>
+                    <div>
+                        <label htmlFor="image">Image</label>
+                        <input id="image" type="text" placeholder="Entrer votre image" value={image} onChange={(e) => setImage(e.target.value)}></input>
+                    </div>
+                    <div>
+                        <label htmlFor="imageFile">Fichier image : </label>
+                        <input id="imageFile" type="file"  label="Choisir une image" onChange={uploadFileHandler}></input>
+                        {loadingUpload && <LoadingBox></LoadingBox> }
+                        {errorUpload && <MessageBox variant="danger">{errorUpload}</MessageBox>}
+                    </div>
+                    <div>
+                        <label htmlFor="category">Categorie</label>
+                        <input id="category" type="text" placeholder="Entrer votre categorie" value={category} onChange={(e) => setCategory(e.target.value)}></input>
+                    </div>
+                    <div>
+                        <label htmlFor="countInStock">Stock</label>
+                        <input id="countInStock" type="text" placeholder="Entrer votre quantité" value={countInStock} onChange={(e) => setCountInStock(e.target.value)}></input>
+                    </div>
+                    <div>
+                        <label htmlFor="description">Description</label>
+                        <textarea id="description" rows="3" type="text" placeholder="Entrer votre Description" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
+                    </div>
+                    <div>
+                        <label htmlFor="nbBedroom">Nombre chambres</label>
+                        <input id="nbBedroom" type="text" placeholder="Entrer le nombre de chambres" value={nbBedroom} onChange={(e) => setNbBedroom(e.target.value)}></input>
+                    </div>
+                    <div>
+                        <label htmlFor="capReception">Capacité de réception</label>
+                        <input id="capReception" type="text" placeholder="Entrer votre capacité de réception" value={capReception} onChange={(e) => setCapReception(e.target.value)}></input>
+                    </div>
+                    <div>
+                        <label htmlFor="disponibility">Est disponible</label>
+                        <input id="disponibility" type="checkbox" checked={disponibility} onChange={(e) => setDisponibility(e.target.checked)}></input>
+                    </div>
+                    <div>
+                        <label htmlFor="superficy">Superficie</label>
+                        <input id="superficy" type="text" placeholder="Entrer la superficie" value={superficy} onChange={(e) => setSuperficy(e.target.value)}></input>
+                    </div>
+                    <div>
+                        <label htmlFor="address">Adresse</label>
+                        <input id="address" type="text" placeholder="Entrer votre adresse" value={address} onChange={(e) => setAddress(e.target.value)}></input>
+                    </div>
+                    <div>
+                        <label htmlFor="postalCode">Code postal</label>
+                        <input id="postalCode" type="text" placeholder="Entrer votre code postal" value={postalCode} onChange={(e) => setPostalCode(e.target.value)}></input>
+                    </div>
+                    <div>
+                        <label htmlFor="city">Ville</label>
+                        <input id="city" type="text" placeholder="Entrer votre ville" value={city} onChange={(e) => setCity(e.target.value)}></input>
+                    </div>
+                    <div>
+                        <label></label>
+                        <button className="primary" type="submit">Modifier</button>
+                    </div>
+                </>}
             </form>
         </div>
     );

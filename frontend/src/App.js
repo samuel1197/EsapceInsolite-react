@@ -20,6 +20,7 @@ import LocationEditScreen from './screens/LocationEditScreen';
 import OrderAdminListScreen from './screens/OrderAdminListScreen';
 import UserAdminListScreen from './screens/UserAdminListScreen';
 import UserAdminEditScreen from './screens/UserAdminEditScreen';
+import OptionAdminListScreen from './screens/OptionAdminListScreen';
 import img1 from './images/espaceInsolite1logo.png';
 
 
@@ -81,6 +82,9 @@ function App() {
                     <li>
                       <Link to="/userlist">Utilisateurs</Link>
                     </li>
+                    <li>
+                      <Link to="/optionlist">Option location</Link>
+                    </li>
                   </ul> 
                 </div>
               )}
@@ -102,6 +106,7 @@ function App() {
           <AdminRoute path="/orderlist" component={OrderAdminListScreen}></AdminRoute>
           <AdminRoute path="/userlist" component={UserAdminListScreen}></AdminRoute>
           <AdminRoute path="/user/:id/edit" component={UserAdminEditScreen}></AdminRoute>
+          <AdminRoute path="/optionlist" component={OptionAdminListScreen}></AdminRoute>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
         <footer className="row center">

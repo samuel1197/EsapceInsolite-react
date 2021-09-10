@@ -6,6 +6,7 @@ import locationRouter from "./routers/locationRouter.js";
 import userRouter from "./routers/userRouter.js";
 import orderRouter from "./routers/orderRouter.js";
 import uploadRouter from "./routers/uploadRouter.js";
+import optionRouter from "./routers/optionRouter.js";
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use('/api/uploads', uploadRouter);
 app.use('/api/users', userRouter);
 
 app.use('/api/locations', locationRouter);
+app.use('/api/options', optionRouter);
 
 app.use('/api/orders', orderRouter);
 app.get('/api/config/paypal' , (req, res) =>{

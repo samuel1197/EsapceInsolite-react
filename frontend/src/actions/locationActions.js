@@ -2,9 +2,7 @@ import Axios from "axios";
 import { LOCATION_CREATE_FAIL, LOCATION_CREATE_REQUEST, LOCATION_CREATE_SUCCESS, LOCATION_DELETE_FAIL, LOCATION_DELETE_REQUEST, LOCATION_DELETE_SUCCESS, LOCATION_DETAILS_FAIL, LOCATION_DETAILS_REQUEST, LOCATION_DETAILS_SUCCESS, LOCATION_LIST_FAIL, LOCATION_LIST_REQUEST, LOCATION_LIST_SUCCESS, LOCATION_UPDATE_FAIL, LOCATION_UPDATE_REQUEST, LOCATION_UPDATE_SUCCESS } from "../constants/locationConstants"
 
 export const listLocations = () => async (dispatch) =>{
-    dispatch({
-        type: LOCATION_LIST_REQUEST
-    });
+    dispatch({ type: LOCATION_LIST_REQUEST });
     try {
         const { data } = await Axios.get('/api/locations');
         dispatch({ type: LOCATION_LIST_SUCCESS, payload: data });

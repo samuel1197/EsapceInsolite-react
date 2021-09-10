@@ -8,13 +8,16 @@ import { ORDER_DELETE_RESET } from '../constants/orderConstants';
 export default function OrderAdminListScreen(props) {
     const orderList = useSelector(state => state.orderList);
     const { loading, error, orders } = orderList;
+
     const orderDelete = useSelector(state => state.orderDelete);
     const { loading: loadingDelete, error: errorDelete, success: successDelete } = orderDelete;
+
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch({ type: ORDER_DELETE_RESET });
         dispatch(listOrders());
     }, [dispatch, successDelete]);
+    
     const deleteHandler = (order) => {
         if (window.confirm('Êtes-vous sur de vouloir supprimer cette réservation?')) {
             dispatch(deleteOrder(order._id));

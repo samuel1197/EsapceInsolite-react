@@ -16,8 +16,8 @@ export default function HomeScreen() {
   }, [dispatch]);
   return (
     <div>
-      <img className="post" src={img2} alt="baniere" />
-      <h2> Nos Produits</h2>
+      <div className="slide"><img className="banner" src={img2} alt="1"></img></div>
+      <h2 className="title" > Nos logements</h2>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (

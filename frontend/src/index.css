@@ -53,10 +53,12 @@ h1{
 h2{
   font-size: 1.6rem;
   padding: 1rem 0;
+  
 }
 
 a{
   text-decoration: none;
+  color: #31789c;
 }
 a:hover{
   color: orange;
@@ -92,7 +94,8 @@ input:hover, select:hover, textarea:hover, button:hover{
 }
 
 button.primary{
-  background-color: #f0c040;
+  background-color: #31789c;
+  color: white;
 }
 
 button.block{
@@ -154,7 +157,7 @@ header a{
 /*Images*/
 img{
   border-radius: 0.5rem ;
-  width: 650px;
+  width: 450px;
   /* height: 366px; */
 }
 
@@ -177,7 +180,7 @@ img.large {
   background-color: #f8f8f8;
   border-radius: 0.5rem;
   margin: 1rem;
-  width: 650px;
+  width: 450px;
 }
 
 .card-body{
@@ -240,6 +243,14 @@ img.large {
 .form{
   max-width: 60rem;
   margin: 0 auto;
+}
+
+
+.form.sign{
+  background-color: white;
+  border: 0.1rem #c0c0c0 solid;
+  border-radius: 0.5rem;
+    
 }
 
 .form > div{
@@ -350,8 +361,75 @@ img.large {
   color: white;
   padding-bottom: 2rem;
 }
+ .slide{
+  margin: 0 auto;
+  width: 1000px; 
+ }
 
-.post{
-  margin: 0 10%;
-  width: 80%;
-}
+ .banner{
+   width: 1000px;
+ }
+
+ .mllogo{
+  margin: 0 auto;
+  width: 300px;
+ }
+
+ .mllogob{
+  width: 300px;
+ }
+
+ .title {
+   text-align: center;
+   font-size: 25px;
+   font-family: 'Poppins', sans-serif;
+   background-color: #203040;
+   color: white;
+   border-radius: 2rem;
+ }
+
+ .titlesign{
+   text-align: center;
+ }
+
+ .card.card-body.left{
+  width: 650px;
+ }
+
+ .about{
+  text-align: justify;
+ }
+
+ .col-2.abt{
+   margin: 0 30px;
+ }
+ .col-2.abtp{
+  margin: 0 30px;
+  }
+  .col-1.val{
+    margin: 0 100px;
+    }
+
+  .icone{
+    width: 100px;
+  }
+
+  .icone3{
+    width: 150px;
+  }
+
+  .icone4{
+    width: 120px;
+  }
+
+  .imgcenter{
+    text-align: center;
+  }
+
+  .mockup{
+    width: 300px;
+  }
+
+  .col-2.mock{
+    margin: 0 30px;
+    }

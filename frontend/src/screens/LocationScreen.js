@@ -16,11 +16,17 @@ export default function LocationScreen(props){
     const locationDetails = useSelector((state) => state.locationDetails);
     const { loading, error, location} = locationDetails;
     
+    const [nbn, setNbn] = useState();
+    const [nbnf, setNbnf] = useState();
+    const debut = Date.parse(nbn);
+    const fin = Date.parse(nbnf);
+    const nuit = (fin - debut) / 86400000;
+
     useEffect(() =>{
         dispatch(detailsLocation(locationId));
     }, [dispatch, locationId]);
     const addToCartHandler = () => {
-        props.history.push(`/cart/${locationId}?qty=${qty}`);
+        props.history.push(`/cart/${locationId}?qty=${qty}?debut=${nbn}?fin=${nbnf}?nbnuit=${nuit}`);
     };
     return (
         <div>
@@ -52,7 +58,7 @@ export default function LocationScreen(props){
                         </ul>
                     </div>
                     <div className='col-1'>
-                        <div className="card card-body">
+                        <div className="card card-body left">
                             <ul>
                                 <li>
                                     <div className="row">
@@ -91,10 +97,11 @@ export default function LocationScreen(props){
                                     </li>
                                     <li>
                                         <div className="row">
-                                            <div>Réservation : </div>
-                                            <div className="cal">
-                                                <Calendar></Calendar>
-                                            </div>
+                                            <div>Réservation</div>
+                                            
+                                               Début : <input className="debut" type="date" value={nbn} onChange={e => setNbn(e.target.value)}></input>
+                                               Fin : <input className="fin" type="date" value={nbnf} onChange={e => setNbnf(e.target.value)}></input>
+                                            
                                         </div>
                                     </li>
                                     <li>

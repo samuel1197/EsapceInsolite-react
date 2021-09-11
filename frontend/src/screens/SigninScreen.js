@@ -5,6 +5,8 @@ import { signin } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
+
+
 export default function SigninScreen(props){
 
     const [email, setEmail] = useState('');
@@ -26,9 +28,9 @@ export default function SigninScreen(props){
     }, [props.history, redirect, userInfo]);
     return(
         <div>
-            <form className="form" onSubmit={submitHandler}>
+            <form className="form sign" onSubmit={submitHandler}>
                 <div>
-                    <h1>Connexion</h1>
+                    <h1 className="titlesign">Connexion</h1>
                 </div>
                 {loading && <LoadingBox></LoadingBox>}
                 {error && <MessageBox variant="danger">{error}</MessageBox>}

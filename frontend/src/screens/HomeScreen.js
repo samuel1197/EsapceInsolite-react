@@ -16,8 +16,15 @@ export default function HomeScreen() {
   }, [dispatch]);
   return (
     <div>
-      <div className="slide"><img className="banner" src={img2} alt="1"></img></div>
-      <h2 className="title" > Nos logements</h2>
+      <div className="row center">
+        <div className='col-2 abt'>
+          <img className="large" src={img2} alt="1"></img>
+        </div>
+      </div>
+
+      <h2 className="title" >Nos logements</h2>
+        
+      
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (

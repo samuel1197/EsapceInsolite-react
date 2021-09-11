@@ -5,6 +5,7 @@ import Rating from './Rating';
 export default function Location(props){
   const { location } = props;
   return (
+    <div className="row center">
     <div key={location._id} className="card">
       <Link to={`/location/${location._id}`}>
         <img src={location.image} alt="bulle" />
@@ -17,7 +18,7 @@ export default function Location(props){
         <div className="price">
           {location.price}€
         </div>
-      </div>
+      </div></div>
     </div>
   );
 }

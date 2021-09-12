@@ -9,7 +9,7 @@ export default function CartScreen(props) {
   const qty = props.location.search
     ? Number(props.location.search.split('=')[1])
     : 1;
-    const debut = props.location.search
+    /*const debut = props.location.search
     ? Number(props.location.search.split('=')[2])
     : 2;
     const fin = props.location.search
@@ -17,7 +17,7 @@ export default function CartScreen(props) {
     : 3;
     const nuit = props.location.search
     ? Number(props.location.search.split('=')[4])
-    : 4;
+    : 4;*/
     
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
@@ -59,13 +59,9 @@ export default function CartScreen(props) {
                   <div className="min-30">
                     <Link to={`/location/${item.location}`}>{item.name}</Link>
                   </div>
-                  <div className="min-30">
-                    Début : {debut}
-                  </div>
-                  <div className="min-30">
-                    Fin : {fin}
-                  </div>
+                   
                   <div>
+                  Nombre de nuits :&nbsp;
                     <select
                       value={item.qty}
                       onChange={(e) =>
@@ -81,7 +77,7 @@ export default function CartScreen(props) {
                       ))}
                     </select>
                   </div>
-                  <div>{item.price} x {nuit}</div>
+                  <div>{item.price} x {item.qty}</div>
                   <div>
                     <button
                       type="button"
@@ -101,8 +97,8 @@ export default function CartScreen(props) {
           <ul>
             <li>
               <h2>
-                Total ({cartItems.reduce((a, c) => a + c.nuit, 0)} location) :&nbsp;
-                {cartItems.reduce((a, c) => a + c.price * c.nuit, 0)} €
+                Total ({cartItems.reduce((a, c) => a + c.qty, 0)} Nuits) :&nbsp;
+                {cartItems.reduce((a, c) => a + c.price * c.qty, 0)} €
               </h2>
             </li>
             <li>

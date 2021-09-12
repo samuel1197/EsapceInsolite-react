@@ -5,7 +5,7 @@ import { detailsLocation } from '../actions/locationActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Rating from '../components/Rating';
-import Calendar from '../components/Calendar';
+
 
 
 
@@ -26,7 +26,8 @@ export default function LocationScreen(props){
         dispatch(detailsLocation(locationId));
     }, [dispatch, locationId]);
     const addToCartHandler = () => {
-        props.history.push(`/cart/${locationId}?qty=${qty}?debut=${nbn}?fin=${nbnf}?nbnuit=${nuit}`);
+        props.history.push(`/cart/${locationId}?qty=${nuit}`);
+        /*props.history.push(`/cart/${locationId}?qty=${qty}?debut=${nbn}?fin=${nbnf}?nbnuit=${nuit}`);*/
     };
     return (
         <div>
@@ -83,9 +84,9 @@ export default function LocationScreen(props){
                                     <>   
                                     <li>
                                         <div className="row">
-                                            <div>Qty</div>
+                                            <div>Nombre de nuit(s) : </div>
                                             <div>
-                                                <select value={qty} onChange={e => setQty(e.target.value)}>
+                                                <select value={nuit} onChange={e => setQty(e.target.value)}>
                                                 {[...Array(location.countInStock).keys()].map((x) =>(
                                                             <option key={x + 1} value={x + 1}>{x + 1}</option>
                                                         )

@@ -45,7 +45,7 @@ export default function OrderAdminListScreen(props) {
                         {orders.map((order) =>(
                             <tr key={order._id}>
                                 <td>{order._id}</td>
-                                <td>{order.user.name}</td>
+                                <td>{order.user.firstname} {order.user.lastname}</td>
                                 <td>{order.createdAt.substring(0, 10)}</td>
                                 <td>{order.totalPrice.toFixed(2)} €</td>
                                 <td>{order.isPaid ? order.paidAt.substring(0, 10): 'No'}</td>

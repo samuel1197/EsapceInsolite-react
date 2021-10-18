@@ -67,6 +67,7 @@
     "vary": "^1.1.2"
   },
   "scripts": {
+    "build": "cd frontend && npm install && npm run build",
     "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
   },
   "repository": {
@@ -81,5 +82,9 @@
   "homepage": "https://github.com/samuel1197/EsapceInsolite-react#readme",
   "devDependencies": {
     "nodemon": "^2.0.12"
+  },
+  "engines": {
+    "node": "15.x",
+    "npm": "7.x"
   }
 }

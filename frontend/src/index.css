@@ -53,13 +53,13 @@ h1{
 h2{
   font-size: 1.6rem;
   padding: 1rem 0;
-  
 }
 
 a{
   text-decoration: none;
   color: #31789c;
 }
+
 a:hover{
   color: orange;
 }
@@ -179,6 +179,7 @@ img.medium{
 img.large {
   width: 100%;
 }
+
 /* Card */
 .card{
   border: 0.1rem #c0c0c0 solid;
@@ -250,12 +251,10 @@ img.large {
   margin: 0 auto;
 }
 
-
 .form.sign{
   background-color: white;
   border: 0.1rem #c0c0c0 solid;
   border-radius: 0.5rem;
-    
 }
 
 .form > div{
@@ -263,6 +262,7 @@ img.large {
   flex-direction: column;
   margin: 2.5rem;
 }
+
 .from label{
   margin: 1rem 0;
 }
@@ -285,7 +285,6 @@ img.large {
   margin: 0;
   margin-top: 0.4rem;
   border-radius: 0.5rem;
-  
 }
 
 .dropdown:hover .dropdown-content {
@@ -333,21 +332,22 @@ img.large {
 .DayPicker_weekHeader_ul {
   margin: -15px 0!important;
 }
- .cal{
+
+.cal{
   width: 25%!important;
   float: right;
- }
+}
 
- .logo1{
+.logo1{
   width: 25rem;
- }
+}
 
- .fa.fa-facebook{
-   color: White!important;
- }
+.fa.fa-facebook{
+  color: White!important;
+}
  
 
- .fa.fa-instagram{
+.fa.fa-instagram{
   color: White!important;
 }
 
@@ -357,7 +357,6 @@ img.large {
 
 .socialnet{
   padding: 0 5rem 0 5rem;
-  
 }
 
 .subfooter{
@@ -366,192 +365,192 @@ img.large {
   color: white;
   padding-bottom: 2rem;
 }
- .slide{
+
+.slide{
   margin: 0 auto;
   width: 1000px; 
- }
+}
 
- .banner{
-   width: 1000px;
- }
+.banner{
+  width: 1000px;
+}
 
- .mllogo{
+.mllogo{
   margin: 0 auto;
   width: 300px;
- }
+}
 
- .mllogob{
+.mllogob{
   width: 300px;
- }
+}
 
- .title {
-   text-align: center;
-   font-size: 25px;
-   font-family: 'Poppins', sans-serif;
-   background-color: #203040;
-   color: white;
-   border-radius: 2rem;
- }
+.title {
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #203040;
+  color: white;
+  border-radius: 2rem;
+}
 
- .titlesign{
-   text-align: center;
- }
+.titlesign{
+  text-align: center;
+}
 
- .card.card-body.left{
+.card.card-body.left{
   width: 650px;
- }
+}
 
- .about{
+.about{
   text-align: justify;
- }
+}
 
- .col-2.abt{
-   margin: 0 30px;
- }
- .col-2.abtp{
+.col-2.abt{
   margin: 0 30px;
+}
+
+.col-2.abtp{
+  margin: 0 30px;
+}
+
+.col-1.val{
+  margin: 0 100px;
+}
+
+.icone{
+  width: 100px;
+}
+
+.icone3{
+  width: 150px;
+}
+
+.icone4{
+  width: 120px;
+}
+
+.imgcenter{
+  text-align: center;
+}
+
+.mockup{
+  width: 300px;
+}
+
+.col-2.mock{
+  margin: 0 30px;
+}
+
+/*Menu burger*/
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  min-height: 75px;
+  background-color: #203040;
+  color: #FFF;
+}
+
+.navbar__links {
+  display: flex;
+}
+
+.navbar__link {
+  padding: 0 1rem;
+  color: inherit;
+  text-align: center;
+}
+
+.dropburger{
+  text-align: center;
+}
+
+.navbar__burger{
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  color: inherit;
+  display: none;
+}
+
+@media screen and (max-width: 850px) {
+  .navbar__links{
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    align-items: center;
+    right: -100vw;
+    bottom: 0;
+    width: 0;
+    height: 100vh;
+    background-color: #203040;
+    visibility: hidden;
+    transition: all .8s ease-out;
   }
-  .col-1.val{
-    margin: 0 100px;
-    }
 
-  .icone{
-    width: 100px;
+  .show-nav .navbar__links{
+    width: 100vw;
+    right: 0;
+    visibility: visible;
   }
 
-  .icone3{
-    width: 150px;
+  .navbar__link{
+    display: block;
+    padding: 1.5rem;
+    font-size: 5vw;
   }
 
-  .icone4{
-    width: 120px;
+  .navbar__burger{
+    display: block;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
   }
 
-  .imgcenter{
-    text-align: center;
+  .navbar__burger:hover{
+    cursor: pointer;
   }
 
-  .mockup{
-    width: 300px;
+  .burger-bar, .burger-bar::before, .burger-bar::after{
+    display: block;
+    width: 40px;
+    height: 3px;
+    position: relative;
+    border-radius: 3px;
+    background: #FFF;
+    transition: all .5s ease-in-out;
   }
 
-  .col-2.mock{
-    margin: 0 30px;
-    }
+  .burger-bar::before, .burger-bar::after{
+    content:"";
+    position: absolute;
+    left: 0;
+  }
 
-    /*Menu burger*/
+  .burger-bar::before{
+    transform: translateY(-12px);
+  }
 
-    .navbar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem;
-      position: fixed;
-      width: 100%;
-      min-height: 75px;
-      background-color: #203040;
-      color: #FFF;
-    }
+  .burger-bar::after{
+    transform: translateY(12px);
+  }
 
-    .navbar__links {
-      display: flex;
-    }
+  .show-nav .burger-bar{
+    width: 0;
+    background: transparent;
+  }
 
-    .navbar__link {
-      padding: 0 1rem;
-      color: inherit;
-      text-align: center;
-    }
+  .show-nav .burger-bar::before{
+    transform: rotate(45deg);
+  }
 
-    .dropburger{
-      text-align: center;
-    }
-
-    .navbar__burger{
-      width: 40px;
-      height: 40px;
-      background: transparent;
-      border: none;
-      color: inherit;
-      display: none;
-    }
-
-    @media screen and (max-width: 850px) {
-      .navbar__links{
-        flex-direction: column;
-        justify-content: center;
-        position: fixed;
-        align-items: center;
-        right: -100vw;
-        bottom: 0;
-        width: 0;
-        height: 100vh;
-        background-color: #203040;
-        visibility: hidden;
-        transition: all .8s ease-out;
-
-      }
-
-      .show-nav .navbar__links{
-        width: 100vw;
-        right: 0;
-        visibility: visible;
-      }
-
-      .navbar__link{
-        display: block;
-        padding: 1.5rem;
-        font-size: 5vw;
-      }
-
-      .navbar__burger{
-        display: block;
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-      }
-
-      .navbar__burger:hover{
-        cursor: pointer;
-      }
-
-      .burger-bar, .burger-bar::before, .burger-bar::after{
-        display: block;
-        width: 40px;
-        height: 3px;
-        position: relative;
-        border-radius: 3px;
-        background: #FFF;
-        transition: all .5s ease-in-out;
-      }
-
-      .burger-bar::before, .burger-bar::after{
-        content:"";
-        position: absolute;
-        left: 0;
-      }
-
-      .burger-bar::before{
-        transform: translateY(-12px);
-      }
-
-      .burger-bar::after{
-        transform: translateY(12px);
-      }
-
-      .show-nav .burger-bar{
-        width: 0;
-        background: transparent;
-
-      }
-      .show-nav .burger-bar::before{
-        transform: rotate(45deg);
-
-      }
-      .show-nav .burger-bar::after{
-        transform: rotate(-45deg);
-
-      }
-      
-    }
+  .show-nav .burger-bar::after{
+    transform: rotate(-45deg);
+  } 
+}
